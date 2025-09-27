@@ -1,0 +1,17 @@
+{% extends "blogs\base.html" %}
+
+
+{% block content %}
+  <p><a href = "{% url 'blogs:edit_blog' blog.id%}">{{blog.name}}</a></p>
+  <p>list of posts:</p>
+  <ul>
+    {% for poster in posty %}
+      <li>
+        <a href = "{% url 'blogs:edit_post' poster.id%}">{{ poster }}</a>
+      </li>
+    {% empty %}
+      <li>empty</li>
+    {% endfor %}
+  </ul>
+  <a href = "{% url 'blogs:new_post' blog.id%}">Enter new post</a>
+{% endblock %}

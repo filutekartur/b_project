@@ -1,0 +1,10 @@
+{% extends 'blogs\base.html' %}
+
+{% block content %}
+  <p>Edit name of blog</p>
+  <form action="{% url 'blogs:edit_blog' blog.id %}" method='post'>
+    {% csrf_token %}
+    {{ formset.as_div }}
+    <button name="submit">Submit</button>
+  </form>
+{% endblock %}
